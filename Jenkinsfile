@@ -4,7 +4,7 @@ pipeline {
     environment {
         
         DOCKERHUB_CREDS = credentials('dockerhub-creds')
-        IMAGE_NAME = ravikumarr10839/react-trend-app"
+        IMAGE_NAME = "ravikumarr10839/react-trend-app"
     }
 
     stages {
