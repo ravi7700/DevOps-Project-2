@@ -89,3 +89,7 @@ No dependencies are required
 No build process is required
 
 No package.json is needed
+
+* Update: Pipeline testing after Docker installation.
+
+
