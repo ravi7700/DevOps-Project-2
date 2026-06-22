@@ -26,6 +26,7 @@ Project Screenshot:
    
 <img width="1918" height="1031" alt="Jenkins Home Page" src="https://github.com/user-attachments/assets/fc25db10-7e34-4d29-92ba-706bae6007f4" />
 <img width="1917" height="1033" alt="Pipeline Success" src="https://github.com/user-attachments/assets/f22e87c0-f621-4e10-b432-da53681f43aa" />
+<img width="1918" height="1035" alt="image" src="https://github.com/user-attachments/assets/5902887a-4f17-48ec-9bbf-d1699787efbd" />
 
 2. Live Application Deployment
 
