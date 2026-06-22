@@ -1,95 +1,64 @@
-DevOps Practice Project – Dist Directory
+This project implements a complete, end-to-end CI/CD pipeline using Terraform, Jenkins, Docker, and Kubernetes (EKS).
 
-This repository contains the production-ready build files (dist folder) for DevOps practice and deployment exercises.
+Project Architecture:
 
-It is intentionally structured to help learners focus on CI/CD pipelines, hosting, containerization, and infrastructure setup rather than application development.
+Tools & Technologies Used:
 
-📁 What This Repository Contains
+1. Cloud Infrastructure: AWS (VPC, EKS, EC2)
+2. Infrastructure as Code (IaC): Terraform
+3. CI/CD Automation: Jenkins
+4. Containerization: Docker & Nginx
+5. Orchestration: Kubernetes (EKS)
+6. Monitoring: Prometheus & Grafana
 
-dist/ – Compiled and production-ready static files
+Key Objectives Accomplished:
 
-HTML
+Automated Provisioning: Used Terraform to build a secure VPC, Jenkins build server, and an EKS cluster.
 
-CSS
+CI/CD Pipeline: Configured a Jenkins declarative pipeline that triggers on GitHub pushes, builds Docker images, and deploys to Kubernetes.
 
-JavaScript
+Scalability: Implemented Kubernetes deployments with multiple replicas and LoadBalancer services for high availability.
 
-Assets (images, fonts, etc.)
+Observability: Integrated Prometheus and Grafana for real-time monitoring of cluster and application performance.
 
-These files are ready to deploy to:
+Project Screenshot:
+1. Jenkins Pipeline Success
+   
+<img width="1918" height="1031" alt="Jenkins Home Page" src="https://github.com/user-attachments/assets/fc25db10-7e34-4d29-92ba-706bae6007f4" />
+<img width="1917" height="1033" alt="Pipeline Success" src="https://github.com/user-attachments/assets/f22e87c0-f621-4e10-b432-da53681f43aa" />
 
-Web servers (Nginx / Apache)
+2. Live Application Deployment
 
-Cloud platforms (AWS S3, Azure Blob, GCP Storage)
+<img width="1916" height="1032" alt="Load Balancer URL " src="https://github.com/user-attachments/assets/c0273cc2-7e7b-4b92-9915-0d7cac27ec40" />
+<img width="1931" height="1044" alt="webpage screenshot " src="https://github.com/user-attachments/assets/7646a954-046e-45b6-931d-ac94ee4c7427" />
 
-Containerized environments (Docker + Nginx)
+3. Kubernetes Cluster Health (Grafana Dashboard)
 
-Kubernetes clusters
+<img width="1913" height="1035" alt="Grafana External IP" src="https://github.com/user-attachments/assets/111f62a5-6969-46c5-bc04-34af3b4c5d8a" />
+<img width="1917" height="1031" alt="Grafana Dashboard - showcasing K8 cluster health " src="https://github.com/user-attachments/assets/d7cf5c9f-071a-4a20-81c9-15039e32320c" />
 
-CI/CD pipeline demonstrations
+4. AWS Infrastructure
 
-🎯 Purpose of This Repository
+EC2 console:
 
-This repository is designed for:
+<img width="1918" height="1033" alt="AWS console EC2" src="https://github.com/user-attachments/assets/e128215f-dd47-480f-8589-79906696d5e7" />
 
-DevOps beginners
+EKS Cluster Console
 
-CI/CD practice
+<img width="1918" height="1033" alt="AWS Console - EKS Cluster" src="https://github.com/user-attachments/assets/a3a3cd87-478f-47cd-8b55-03c2f205a5a0" />
 
-Deployment pipeline testing
+EKS Cluster Node Group Console:
 
-Docker & Kubernetes deployment exercises
+<img width="1913" height="1030" alt="EKS Cluster Node Group" src="https://github.com/user-attachments/assets/a3d10ca2-2ea2-4a72-bec4-f1cc7aea935a" />
 
-Web server configuration practice
+5. Docker Repo
 
-Reverse proxy and load balancer setup
+<img width="1918" height="1032" alt="Docker Repo" src="https://github.com/user-attachments/assets/dbcc40c5-7ebd-458e-a3f4-e3d8e6913a3c" />
 
-The goal is to simulate real-world deployment scenarios using already built application files.
+Key Technical Challenges & Solutions:
 
-❓ Why is there NO package.json?
+EKS Authentication: Resolved "client provides credentials" errors by upgrading to AWS CLI v2 and ensuring enable_cluster_creator_admin_permissions was set to true in Terraform.
 
-You may notice that this repository does not include:
+Network Connectivity: Solved "i/o timeout" issues by configuring EKS security groups to explicitly allow traffic from the VPC CIDR (10.0.0.0/16).
 
-package.json
-
-node_modules
-
-Source code (src/)
-
-Build tools configuration
-
-✅ Reason:
-
-This repository only contains the final production build output (dist), not the development source code.
-
-In a typical project:
-
-Developers write source code.
-
-The project is built using tools like:
-
-Node.js
-
-Webpack
-
-Vite
-
-React (or other frameworks)
-
-A dist/ folder is generated.
-
-Only the production build is deployed to servers.
-
-This repository represents step 4 only.
-
-Since this is already the compiled output:
-
-No dependencies are required
-
-No build process is required
-
-No package.json is needed
-
-* Update: Pipeline testing after Docker installation.
-
-
+Pipeline Automation: Fixed "docker not found" errors by installing the Docker engine on the Jenkins EC2 instance and adding the jenkins user to the docker group.
