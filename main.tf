@@ -65,6 +65,20 @@ resource "aws_instance" "jenkins_server" {
               #!/bin/bash
               apt-get update -y
               apt-get install fontconfig openjdk-21-jre -y
+
+              wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
+              echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" | tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+              apt-get update -y
+              apt-get install jenkins -y
+              systemctl enable jenkins
+              systemctl start jenkins
+
+              apt-get install docker.io -y
+              usermod -aG docker jenkins
+              systemctl restart jenkins
+              systemctl enable docker
+              systemctl start docker
               EOF
 
   tags = {
